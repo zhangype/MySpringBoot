@@ -1,5 +1,7 @@
 package com.zhangype.myboot.modules.sys;
 
+import com.zhangype.myboot.config.properties.TestProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
+    @Autowired
+    private TestProperties properties;
+
     @RequestMapping("/")
-    String home() {
-        return "Hello World!";
+    public String home() {
+        return "Hello World!" + properties.getValue();
     }
 }
