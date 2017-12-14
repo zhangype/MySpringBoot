@@ -14,11 +14,21 @@ public class TestProperties {
 
     private String value;
 
+    private String encValue;
+
     public String getValue() {
         return value;
     }
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getEncValue() {
+        return encValue;
+    }
+
+    public void setEncValue(String encValue) {
+        this.encValue = encValue;
     }
 }
