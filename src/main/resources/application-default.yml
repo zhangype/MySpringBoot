@@ -1,3 +1,10 @@
 test:
   value: 张三
   enc-value: ENC(AbGFku1MadQRHVLewgyTzw==)
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
