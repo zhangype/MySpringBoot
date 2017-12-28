@@ -4,16 +4,24 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @author zhangype@yonyou.com
+ * 自定义Properties
+ *
+ * @author 1141404898@qq.com
  * @version V1.0.0
  * @date 2017/12/11
  */
-@ConfigurationProperties(prefix = "test")
 @Component
+@ConfigurationProperties(prefix = "test")
 public class TestProperties {
 
+    /**
+     * 数据
+     */
     private String value;
 
+    /**
+     * 加密数据
+     */
     private String encValue;
 
     public String getValue() {

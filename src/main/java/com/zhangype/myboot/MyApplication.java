@@ -8,7 +8,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author zhangype@yonyou.com
+ * 应用主类
+ *
+ * @author 1141404898@qq.com
  * @version V1.0.0
  * @date 2017/11/23
  */
