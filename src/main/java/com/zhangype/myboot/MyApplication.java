@@ -1,21 +1,21 @@
 package com.zhangype.myboot;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * 应用主类
+ * 应用启动类
  *
  * @author 1141404898@qq.com
  * @version V1.0.0
  * @date 2017/11/23
  */
+@SpringBootApplication
 @ComponentScan(basePackages = "com.zhangype")
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@MapperScan("com.zhangype.myboot.modules.**.mapper")
 public class MyApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
