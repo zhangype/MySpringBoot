@@ -3,6 +3,7 @@ package com.zhangype.myboot.modules.sys.controller;
 import com.zhangype.myboot.Result;
 import com.zhangype.myboot.common.utils.ResultUtils;
 import com.zhangype.myboot.config.properties.TestProperties;
+import com.zhangype.myboot.modules.sys.entity.User;
 import com.zhangype.myboot.modules.sys.model.UserModel;
 import com.zhangype.myboot.modules.sys.service.UserService;
 import org.slf4j.Logger;
@@ -20,10 +21,10 @@ import javax.validation.Valid;
  * @date 2017/11/24
  */
 @RestController
-@RequestMapping("/sys/user")
+@RequestMapping(value = "/sys/user")
 public class UserController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private TestProperties properties;
@@ -34,8 +35,15 @@ public class UserController {
     @PostMapping("login")
     public Result login(@RequestBody @Valid UserModel loginModel) {
         userService.findUserByAccount(loginModel.getAccount());
-        LOGGER.info("value={}", properties.getValue());
+        logger.info("value={}", properties.getValue());
         return ResultUtils.success();
+    }
+
+    @PostMapping(value = "/info")
+    public Result getUserInfo(@RequestBody @Valid UserModel userModel) {
+        User user = new User();
+        user.setAccount(userModel.getAccount());
+        return ResultUtils.success(user);
     }
 
 }
