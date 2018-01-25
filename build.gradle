@@ -40,6 +40,7 @@ dependencyManagement {
 dependencies {
     compile(
             "org.springframework.boot:spring-boot-starter-web:${springbootVersion}",
+            "org.springframework.boot:spring-boot-starter-actuator:${springbootVersion}",
             "org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0",
             "com.github.ulisesbocchio:jasypt-spring-boot-starter:1.5-java7",
             "org.springframework.boot:spring-boot-configuration-processor:${springbootVersion}",

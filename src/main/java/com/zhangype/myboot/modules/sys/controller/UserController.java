@@ -9,6 +9,7 @@ import com.zhangype.myboot.modules.sys.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -32,6 +33,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private CounterService counterService;
+
     @PostMapping("login")
     public Result login(@RequestBody @Valid UserModel loginModel) {
         userService.findUserByAccount(loginModel.getAccount());
@@ -41,6 +45,7 @@ public class UserController {
 
     @PostMapping(value = "/info")
     public Result getUserInfo(@RequestBody @Valid UserModel userModel) {
+        counterService.increment("myboot.info.count");
         User user = new User();
         user.setAccount(userModel.getAccount());
         return ResultUtils.success(user);

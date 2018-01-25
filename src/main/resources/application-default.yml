@@ -26,9 +26,15 @@ spring:
 eureka:
   client:
     service-url:
+      # 服务注册中心地址
       defaultZone: http://localhost:8088/eureka/
 
 mybatis:
   type-aliases-package: com.zhangype.myboot.modules
   configuration:
     map-underscore-to-camel-case: true
+
+# 关闭端点信息验证
+management:
+  security:
+    enabled: false
