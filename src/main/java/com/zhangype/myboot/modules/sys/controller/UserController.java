@@ -36,7 +36,7 @@ public class UserController {
     @Autowired
     private CounterService counterService;
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public Result login(@RequestBody @Valid UserModel loginModel) {
         userService.findUserByAccount(loginModel.getAccount());
         logger.info("value={}", properties.getValue());
